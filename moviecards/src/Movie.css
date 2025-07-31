@@ -1,0 +1,27 @@
+.card{
+  border:3px solid black;
+  margin:15px;
+}
+.card img{
+  border:2px solid yellow;
+}
+button{
+  padding:10px;
+  width:200px;
+  height:35px;
+  text-align: center;
+  font-weight: bold;
+
+}
+.desc {
+  display:flex;
+  justify-content: space-between;
+
+
+}
+.desc star{
+    padding:10px;
+}
+.desc price{
+    padding:10px;
+}
