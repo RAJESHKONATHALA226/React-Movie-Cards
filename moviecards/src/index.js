@@ -1,23 +1,53 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Movierule from './Movie';
 import DataObj from './Movielist';
+import Search from './Search';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+
+function App(){
+const [text,setText]= useState(" ");
+const [issearch,isSearched]=useState(false);
+
+function handler(query){
+  setText(query);
+  isSearched(true);
+}
+
+const filtermovies=DataObj.filter(dt =>dt.title.toLowerCase()===text.toLowerCase());
+let movietoshow;
+if(!issearch){
+  movietoshow=DataObj;
+}
+else if(filtermovies.length > 0){
+  movietoshow=filtermovies;
+}
+else{
+  movietoshow=DataObj;
+}
+return(
   <div className="container">
-  <h1 className="text-center">Rajesh Cinemalu</h1>
+  <h1 className="text-center kingu">Rajesh Movies</h1>
+
+  <Search onSearch={handler}/>
+
   <div style={{display:'flex'}}>
-  {DataObj.map(dt=>{
+  {movietoshow.map(dt=>{
   return   <Movierule title={dt.title} img={dt.image} descp={dt.desc} prices={dt.price} stars={dt.star}/>
   })}
 
 
 </div>
 </div>
+);
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+
+  <App />
   </React.StrictMode>
 );
 

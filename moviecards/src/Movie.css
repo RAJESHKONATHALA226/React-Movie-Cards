@@ -5,17 +5,32 @@
 .card img{
   border:2px solid yellow;
 }
+.box1{
+width:210px;
+height:45px;
+display:flex;
+flex-direction: column;
+justify-content: center;
+
+}
 button{
-  padding:10px;
   width:200px;
-  height:35px;
+  height:32px;
   text-align: center;
-  font-weight: bold;
+
+}
+
+.edit1{
+  height:125px;
 
 }
 .desc {
+
   display:flex;
   justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 5px;
+
 
 
 }
